@@ -86,8 +86,12 @@ var controlElevation = L.control.elevation({
 controlElevation.load("data/etappe9.gpx")
 
 //Minimap
-var osm = new L.TileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {minZoom: 0, maxZoom: 13});
+var wmts = new L.TileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {minZoom: 0, maxZoom: 13});
 var miniMap = new L.Control.MiniMap(wmts, {
     toggleDisplay: true,
+    minimized: true,
 }).addTo(map);
+
+//Fullscreen
+map.addControl(new L.Control.Fullscreen());
 	
