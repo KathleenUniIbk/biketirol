@@ -74,5 +74,12 @@ pulldown.onchange = function(evt) {
     window.location.href = `https://${evt.target.value}.github.io/biketirol`;
 }
 
-var controlElevation = L.control.elevation({}).addTo(map);
+var controlElevation = L.control.elevation({
+    theme: "bike-tirol",
+    time:false,
+    elevationDiv: "#profile",
+    height: 300,
+
+    //slope: true,
+}).addTo(map);
 controlElevation.load("data/etappe9.gpx")
