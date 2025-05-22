@@ -74,6 +74,7 @@ pulldown.onchange = function(evt) {
     window.location.href = `https://${evt.target.value}.github.io/biketirol`;
 }
 
+// leaflet plugin elevation
 var controlElevation = L.control.elevation({
     theme: "bike-tirol",
     time:false,
@@ -83,3 +84,10 @@ var controlElevation = L.control.elevation({
     //slope: true,
 }).addTo(map);
 controlElevation.load("data/etappe9.gpx")
+
+//Minimap
+var osm = new L.TileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {minZoom: 0, maxZoom: 13});
+var miniMap = new L.Control.MiniMap(wmts, {
+    toggleDisplay: true,
+}).addTo(map);
+	
